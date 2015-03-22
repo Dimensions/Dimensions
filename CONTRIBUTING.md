@@ -1,6 +1,8 @@
 #Contributing
 There are two parts to Dimensions, the *indirect implementation* and the *direct implementation*. The *indirect* is the open Java source code, while the *direct* is a group of Diff patches to NMS. Using this, we are able to completely open source Dimensions without open sourcing Minecraft.
 
+You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
+
 ##Pulling
 You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
 * Go into a folder
