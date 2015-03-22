@@ -1,6 +1,4 @@
 #Contributing
-Since Mojang doesn't allow us to distribute the decompiled source of minecraft, we can only open source the indirect implementation.
-
 There are two parts to Dimensions, the *indirect implementation* and the *direct implementation*. The *indirect* is the open Java source code, while the *direct* is a group of Diff patches to NMS. Using this, we are able to completely open source Dimensions without open sourcing Minecraft.
 
 ##Pulling
