@@ -18,12 +18,12 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 * Name the jar to `minecraft_server.jar` and put it in `mcp/jars`
 * Run `mcp/decompile.sh`
 * Run `init.sh` from the root folder
-* Open `mcp/src/minecraft_server` in your IDE
+* Open `mcp/src/minecraft_server/` in your IDE
 * Edit code
 
 ###Export Obfuscated Code
 * Run `export.sh`
-* Get files from `mcp/reobf/minecraft_server`
+* Get files from `mcp/reobf/minecraft_server/`
 * Put files into any vanilla jar!
 
 ##Building
