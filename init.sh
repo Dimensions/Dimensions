@@ -1,7 +1,7 @@
 #This file is to be run before you do anything
 
 #Copy NMS source to compare for patches later
-cp -a mcp/src/minecraft_server/ mcp/src/old_nms
+cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
 echo Done copying NMS source
 
