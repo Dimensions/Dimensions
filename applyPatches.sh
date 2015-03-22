@@ -11,8 +11,7 @@ for patch in *.patch; do
   cd ../mcp/src/minecraft_server
 
   #Apply patches to NMS (Will this work it it's not in the same directory?)
-  patch -p4 < patch
-  #-p4 because we want to go net>minecraft>server>XYZ>code.java
+  patch -p6 < patch
 
 ;done
 
