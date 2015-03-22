@@ -4,7 +4,6 @@ There are two parts to Dimensions, the *indirect implementation* and the *direct
 You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
 
 ##Pulling
-You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
 * Go into a folder
 * Initialize Git: `git init`
 * Add the remote: `git remote add dim https://github.com/dimensions/dimensions`
