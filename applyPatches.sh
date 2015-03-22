@@ -12,6 +12,7 @@ for patch in *.patch; do
 
   #Apply patches to NMS (Will this work it it's not in the same directory?)
   patch -p4 < patch
+  #-p4 because we want to go net>minecraft>server>XYZ>code.java
 
 ;done
 
