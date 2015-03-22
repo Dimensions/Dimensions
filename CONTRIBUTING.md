@@ -3,13 +3,13 @@ Since Mojang doesn't allow us to distribute the decompiled source of minecraft, 
 
 #MCP Workspace
 ##Setup
-*Download MCP from http://modcoderpack.com/
-*Put in the **CORRECT** version from http://mcversions.net/
-*Run the `decompile.bat` or `decompile.sh`
-*Edit code in `src/minecraft_server`
+* Download MCP from http://modcoderpack.com/
+* Put in the **CORRECT** version from http://mcversions.net/
+* Run the `decompile.bat` or `decompile.sh`
+* Edit code in `src/minecraft_server`
 
 ##Export
-*Run `recompile.bat` or recompile.sh`
-*Run `reobfuscate.bat` or `reobfuscate.sh`
-*Get files from `reobf/minecraft_server`
-*Put files into any vanilla jar!
+* Run `recompile.bat` or recompile.sh`
+* Run `reobfuscate.bat` or `reobfuscate.sh`
+* Get files from `reobf/minecraft_server`
+* Put files into any vanilla jar!
