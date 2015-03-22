@@ -7,10 +7,13 @@ cd direct
 #Go through all the patch files in the direct folder
 for patch in *.patch; do
 
-  #Go back to the NMS folder from MCP
+  #Go to the NMS folder from MCP
   cd ../mcp/src/minecraft_server
 
   #Apply patches to NMS (Will this work it it's not in the same directory?)
   patch -p4 < patch
 
 ;done
+
+#Go back to the source folder
+cd ../../../
