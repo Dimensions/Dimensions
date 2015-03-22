@@ -12,9 +12,9 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 
 ##MCP Workspace
 ###Setup
-* Download 1.8 MCP from http://modcoderpack.com/
+* Download 1.8 MCP from http://modcoderpack.com/website/releases
 * Unzip the files and put them in a new folder called `mcp/`
-* Download a 1.8 jar from http://mcversions.net
+* Download a 1.8 jar from http://mcversions.net/
 * Name the jar to `minecraft_server.jar` and put it in `mcp/jars`
 * Run `mcp/decompile.sh`
 * Run `init.sh` from the root folder
