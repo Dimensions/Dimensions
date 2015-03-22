@@ -1,6 +1,9 @@
 # Dimensions
 The implementation of Portal into the Minecraft server. 
 
+##Want to help?
+Look at the [CONTRIBUTING](https://github.com/Dimensions/Dimensions/blob/master/CONTRIBUTING.md) file to help!
+
 ##What is this?
 Dimensions is a Minecraft server mod that implements Portal, a fork of the Bukkit API.
 ###Isn't that how Bukkit died?
