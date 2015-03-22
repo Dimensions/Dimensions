@@ -15,5 +15,7 @@ for patch in *.patch; do
 
 ;done
 
+echo Patches applied! 
+
 #Go back to the source folder
 cd ../../../
