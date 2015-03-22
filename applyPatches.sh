@@ -8,7 +8,7 @@ cd direct
 for patch in *.patch; do
 
   #Go to the NMS folder from MCP
-  cd ../mcp/src/minecraft_server
+  cd ../mcp/src/minecraft_server/net/
 
   #Apply patches to NMS (Will this work it it's not in the same directory?)
   patch -p6 < patch
