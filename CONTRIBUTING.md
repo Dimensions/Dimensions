@@ -22,8 +22,7 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 * Edit code
 
 ###Export Obfuscated Code
-* Run `mcp/recompile.sh`
-* Run `mcp/reobfuscate.sh`
+* Run `export.sh`
 * Get files from `mcp/reobf/minecraft_server`
 * Put files into any vanilla jar!
 
