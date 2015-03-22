@@ -1,24 +1,14 @@
 # Dimensions
-The implementation of Portal into the Minecraft server. 
+A Minecraft server mod to replace them all.
 
 ##Want to help?
 Look at the [CONTRIBUTING](https://github.com/Dimensions/Dimensions/blob/master/CONTRIBUTING.md) file to help!
 
 ##What is this?
-Dimensions is a Minecraft server mod that implements Portal, a fork of the Bukkit API.
-###Isn't that how Bukkit died?
-Bukkit's death had *absolutely nothing* to do with them modifying Minecraft.
+Dimensions is a Minecraft server mod that allows people to create plugins that can completely modify the way Minecraft works.
 
-##Bukkit Plugins?
-Plugins written in Bukkit will work on Dimensions, unless they contain NMS or OCB code. 
-
-There will also be a lot more events to hook into the Packet System, as Packets will be able to be controlled using Events.
-
-##Spigot Plugins?
-Support for Spigot plugins may come soon, but is not intended at this time.
-
-##Sponge Support?
-No Sponge plugin support is planned as of now.
+##How does it work?
+There are two parts to Dimensions, the *indirect implementation* and the *direct implementation*. The *indirect* is the Java source code for Dimensions, implementing the API. The *direct* is a group of patches for the vanilla Minecraft server. Using these, we can comepltely open source Dimensions without open sourcing Minecraft.
 
 ##Can I write Plugins in other languages?
 This will be one of the major differences between Bukkit, Spigot, Glowstone, & Trident. Dimensions will have official support for a variety of languages, but the main one will be Java.
