@@ -15,9 +15,8 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 * Unzip the files and put them in a new folder called `mcp/`
 * Download a 1.8 jar from http://mcversions.net
 * Name the jar to `minecraft_server.jar` and put it in `mcp/jars`
-* Run `decompile.sh`
-* Put the code from `indirect/` into `src/minecraft_server`
-* Run `applyPatches.sh` from the root folder
+* Run `mcp/decompile.sh`
+* Run `init.sh` from the root folder
 * Open `mcp/src/minecraft_server` in your IDE
 * Edit code
 
@@ -27,7 +26,6 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 * Get files from `reobf/minecraft_server`
 * Put files into any vanilla jar!
 
-##Pushing
-* Put back the *indirect* code from `src/minecraft_server` into `indirect/`
-* Run `rebuildPatches.sh`
+##Building
+* Run `build.sh`
 * Commit & Push!
