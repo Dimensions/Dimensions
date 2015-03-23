@@ -1,0 +1,11 @@
+diff -rupN mcp/src/old_nms/net/minecraft/server/MinecraftServer.java mcp/src/minecraft_server/net/minecraft/server/MinecraftServer.java
+--- mcp/src/old_nms/net/minecraft/server/MinecraftServer.java	Sun Mar 22 22:02:46 2015
++++ mcp/src/minecraft_server/net/minecraft/server/MinecraftServer.java	Sun Mar 22 22:27:35 2015
+@@ -812,6 +812,7 @@ public abstract class MinecraftServer im
+ 
+     public static void main(String[] p_main_0_)
+     {
++		System.out.println("Dimensions Server Starting..."); //ddi
+         Bootstrap.register();
+ 
+         try
