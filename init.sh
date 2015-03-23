@@ -28,4 +28,4 @@ cp -a indirect/dimensions/ mcp/src/minecraft_server/
 echo Done moving indirect code into NMS
 
 #Apply the direct patches to NMS
-#applyPatches.sh
+applyPatches.sh
