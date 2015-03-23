@@ -12,7 +12,7 @@ do
   #Go to the NMS folder from MCP
   cd ../
 
-  #Apply patches to NMS (Will this work it it's not in the same directory?)
+  #Apply patches to NMS (Putting them in old_nms for some reason...)
   patch -p0 < direct/$patch
   echo Applied $patch
 
