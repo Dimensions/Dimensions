@@ -5,6 +5,11 @@ cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
 echo Done copying NMS source
 
+#Copy Solar API into NMS
+cp Solar/indirect/ mcp/src/minecraft_server/
+
+echo Done moving Solar code into NMS
+
 #Copy indirect code into NMS
 cp indirect/ mcp/src/minecraft_server/
 
