@@ -17,7 +17,7 @@ cd ..
 echo Solar set up
 
 #Copy Solar API into NMS
-cp -a Solar/indirect/dimensions mcp/src/minecraft_server/
+cp -a Solar/src/dimensions mcp/src/minecraft_server/
 
 echo Done moving Solar code into NMS
 
