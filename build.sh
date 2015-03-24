@@ -8,11 +8,11 @@ cp -a mcp/src/minecraft_server/dimensions/ indirect/
 echo Indirect code moved into indirect folder
 
 #Copy Solar code into Solar
-cp -a indirect/dimensions/solar/ Solar/indirect/dimensions/
+cp -a indirect/dimensions/solar/ Solar/src/dimensions/
 #Remove everything from old solar folder
 rm -rf indirect/dimensions/solar/
 
-echo Solar code moved into Solar/indirect/dimensions/solar/
+echo Solar code moved into Solar/src/dimensions/solar/
 
 #Build patches into direct/
 buildPatches.sh
