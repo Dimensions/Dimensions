@@ -11,7 +11,35 @@ dim_help() {
     $cmd <<<'
   help - Show this help page.
   update - Update the submodules and apply the Porekit patches.
-  patches - Rebuild the Porekit patches.'
+  patches - Rebuild the Porekit patches.
+  init - Copy direct & indirect into mcp and setup Solar.'
+}
+
+dim_init(){
+    #Copy NMS source to compare for patches later
+    mkdir -p mcp/src/old_nms
+    cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
+
+    echo Done copying NMS source
+
+    #Set up Solar submodule
+    cd Solar
+    git submodule init
+    git submodule update
+    cd ..
+
+    echo Solar set up
+
+    #Copy Solar API into NMS
+    cp -a Solar/src/dimensions mcp/src/minecraft_server/
+
+    echo Done moving Solar code into NMS
+
+    #Copy indirect code into NMS
+    mkdir -p indirect/dimensions
+    cp -a indirect/dimensions/ mcp/src/minecraft_server/
+
+    echo Done moving indirect code into NMS
 }
 
 apply_patches() {
@@ -51,8 +79,8 @@ apply_patches() {
 dim_update() {
     echo "> Updating submodules..."
     git submodule update --init
-    echo "> Updating Porekit..."
-    apply_patches lib/Bukkit Porekit patches
+    echo "> Updating MCP..."
+    apply_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ patches
 }
 
 
@@ -75,7 +103,7 @@ clean_patches() {
     done
 }
 
-dim_patches() {
+make_patches() {
     # Based on https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse/rebuildPatches.sh#26
     source=$1
     repo=$(basename $1)
@@ -92,8 +120,8 @@ dim_patches() {
 }
 
 dim_patches() {
-    echo "> Recreating patches for Porekit..."
-    make_patches lib/Bukkit Porekit patches
+    echo "> Recreating patches for MCP..."
+    make_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ patches
 }
 
 if [ -z $1 ]; then
