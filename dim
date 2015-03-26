@@ -12,7 +12,18 @@ dim_help() {
   help - Show this help page.
   update - Update the submodules and apply the Porekit patches.
   patches - Rebuild the Porekit patches.
-  init - Copy direct & indirect into mcp and setup Solar.'
+  init - Copy direct & indirect into mcp and setup Solar.
+  export - Export the obfuscated code to put into a jar.'
+}
+
+dim_export(){
+    #Recompile NMS
+    mcp/recompile.sh
+
+    #Reobfuscate NMS
+    mcp/reobfuscate.sh	
+
+    echo Grab the files in mcp/reobf/minecraft_server/ and put them into any vanilla jar!
 }
 
 dim_init(){
