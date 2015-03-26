@@ -173,7 +173,7 @@ fi
 # TODO: Improve this, just a little bit lazy right now
 if [ "$(type -t "dim_$1")" = "function" ]; then
     "dim_$@"
-elif [ "$(type -t "dim_$1_$2" = "function" ]; then
+elif [ "$(type -t "dim_$1_$2")" = "function" ]; then
     "dim_$1_$2"
 else
     >&2 echo "Unknown command: '$@'. Type '$0 help' for more information."
