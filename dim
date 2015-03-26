@@ -125,7 +125,7 @@ dim_patches() {
 }
 
 if [ -z $1 ]; then
-    pore_help
+    dim_help
     exit
 fi
 
