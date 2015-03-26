@@ -135,6 +135,15 @@ dim_patches() {
     make_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ patches
 }
 
+dim_setup_eclipse(){
+    mkdir -p mcp/eclipse/Server/src
+    cp -a mcp/src/minecraft_server/net mcp/eclipse/Server/src
+    cp -a mcp/src/minecraft_server/dimensions mcp/eclipse/Server/src
+    cp -a mcp/jars mcp/eclipse/Server
+
+    echo Files moved into eclipse/Server/
+}
+
 if [ -z $1 ]; then
     dim_help
     exit
@@ -143,6 +152,8 @@ fi
 # TODO: Improve this, just a little bit lazy right now
 if [ "$(type -t "dim_$1")" = "function" ]; then
     "dim_$@"
+elif [ "$(type -t "dim_$1_$2" = "function" ]; then
+    "dim_$1_$2"
 else
     >&2 echo "Unknown command: '$@'. Type '$0 help' for more information."
     exit 1
