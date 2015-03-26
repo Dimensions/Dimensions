@@ -10,8 +10,8 @@ dim_help() {
     command -v column >/dev/null 2>&1 && cmd="column -t -s -" || cmd=cat
     $cmd <<<'
   help - Show this help page.
-  update - Update the submodules and apply the Porekit patches.
-  patches - Rebuild the Porekit patches.
+  update - Update the submodules and apply the NMS patches.
+  patches - Rebuild the NMS patches.
   init - Copy direct & indirect into mcp and setup Solar.
   export - Export the obfuscated code to put into a jar.'
 }
@@ -133,6 +133,27 @@ make_patches() {
 dim_patches() {
     echo "> Recreating patches for MCP..."
     make_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ patches
+}
+
+dim_build(){
+    #Run when you want to get your code ready to commit
+
+    mkdir -p indirect/dimensions/solar
+
+    #Copy indirect files from NMS into indirect/
+    cp -a mcp/src/minecraft_server/dimensions/ indirect/
+
+    echo Indirect code moved into indirect folder
+
+    #Copy Solar code into Solar
+    cp -a indirect/dimensions/solar/ Solar/src/dimensions/
+    #Remove everything from old solar folder
+    rm -rf indirect/dimensions/solar/
+
+    echo Solar code moved into Solar/src/dimensions/solar/
+    
+    #Build patches into direct/
+    dim_patches
 }
 
 dim_setup_eclipse(){
