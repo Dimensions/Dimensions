@@ -10,8 +10,8 @@ Dimensions is a Minecraft server mod that allows people to create plugins that c
 ##How does it work?
 There are two parts to Dimensions, the *indirect implementation* and the *direct implementation*. The *indirect* is the Java source code for Dimensions, implementing the API. The *direct* is a group of patches for the vanilla Minecraft server. Using these, we can comepltely open source Dimensions without open sourcing Minecraft.
 
-##Will plugins written on other api's be compatible?
-This will be one of the major differences between Bukkit, Spigot, and Sponge. Dimensions will have a patch to many api's to give the most flexibility in plugin use.
+##Can I write Plugins in other languages?
+This will be one of the major differences between Bukkit, Spigot, Sponge, & Trident. Dimensions will have official support for a variety of languages, but the main one will be Java.
 
 ##Will this be faster than Sponge/Spigot/Trident?
 Probably not, I'm not worried about performance that much right now. This may change later down the line, when more is done.
