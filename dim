@@ -24,6 +24,9 @@ dim_export(){
 
 dim_init(){
 
+    echo "Downloading necessary files..."
+    python py/download.py
+
     echo "Initilaizing the Dimensions server..."
 
     echo "Making a local copy of the NMS source..."
