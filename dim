@@ -6,9 +6,9 @@ dim_help() {
     command -v column >/dev/null 2>&1 && cmd="column -t -s -" || cmd=cat
     $cmd <<<'
   help - Show this help page.
-  update - Update the submodules and apply the NMS patches.
-  patches - Rebuild the NMS patches.
   init - Copy direct & indirect into mcp and setup Solar.
+  update - Update from the repo.
+  build - Make files ready to commit.
   export - Export the obfuscated code to put into a jar.'
 }
 
@@ -23,39 +23,31 @@ dim_export(){
 }
 
 dim_init(){
-    #Copy NMS source just in case
+
+    echo "Making a local copy of the NMS source...
     mkdir -p mcp/src/old_nms
     cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
-    echo Done copying NMS source
-
-    #Set up Solar submodule
+    echo "Setting up Solar..."
     cd Solar
     git submodule init
     git submodule update
     cd ..
 
-    echo Solar set up
-
-    #Copy Solar API into NMS
+    echo "Moving Solar into NMS..."
     cp -a Solar/src/dimensions mcp/src/minecraft_server/
 
-    echo Done moving Solar code into NMS
-
-    #Copy indirect code into NMS
+    echo "Copying indirect code into NMS..."
     mkdir -p indirect/dimensions
     cp -a indirect/dimensions/ mcp/src/minecraft_server/
-
-    echo Done moving indirect code into NMS
     
+    echo "Initializing NMS..."
     cd mcp/src/minecraft_server/net/
     git init
     git checkout -b dimensions
     cd ../../../../
-    
-    echo Done initializing NMS
 
-    dim_update
+    update
 }
 
 apply_patches() {
@@ -63,13 +55,22 @@ apply_patches() {
     cp -a direct/ mcp/src/minecraft_server/net/direct-patches/
     cd mcp/src/minecraft_server/net/
     git am direct-patches
+    cd ../../../../
 }
 
-dim_update() {
+dim_pull(){
+    git pull https://github.com/Dimensions/Dimensions master
+}
+
+update() {
     echo "> Updating Solar..."
     git submodule update --init
-    echo "> Updating MCP..."
+    echo "> Applying patches to MCP..."
     apply_patches
+}
+
+dim_update(){
+    pull && update
 }
 
 make_patches() {
