@@ -24,6 +24,8 @@ dim_export(){
 
 dim_init(){
 
+    ecoh "Initilaizing the Dimensions server..."
+
     echo "Making a local copy of the NMS source...
     mkdir -p mcp/src/old_nms
     cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
@@ -58,10 +60,6 @@ apply_patches() {
     cd ../../../../
 }
 
-dim_pull(){
-    git pull https://github.com/Dimensions/Dimensions master
-}
-
 update() {
     echo "> Updating Solar..."
     git submodule update --init
@@ -70,41 +68,32 @@ update() {
 }
 
 dim_update(){
-    pull && update
-}
-
-make_patches() {
-    cd mcp/src/minecraft_server/net/
-    git format-patch -o direct-patches master
-    cd ../../../../
-    cp -a mcp/src/minecraft_server/net/direct-patches/ direct/
-    rm -rf mcp/src/minecraft_server/net/direct-patches/
-}
-
-dim_patches() {
-    echo "> Recreating patches for MCP..."
-    make_patches 
+    git pull https://github.com/Dimensions/Dimensions master
+    update
 }
 
 dim_build(){
     #Run when you want to get your code ready to commit
 
+    echo "Moving indirect code..."
     mkdir -p indirect/dimensions/solar
 
     #Copy indirect files from NMS into indirect/
     cp -a mcp/src/minecraft_server/dimensions/ indirect/
 
-    echo Indirect code moved into indirect folder
-
     #Copy Solar code into Solar
+    echo Moving Solar code into Solar/src/dimensions/solar/
     cp -a indirect/dimensions/solar/ Solar/src/dimensions/
     #Remove everything from old solar folder
     rm -rf indirect/dimensions/solar/
-
-    echo Solar code moved into Solar/src/dimensions/solar/
     
     #Build patches into direct/
-    dim_patches
+    echo "> Recreating patches for MCP..."
+    cd mcp/src/minecraft_server/net/
+    git format-patch -o direct-patches master
+    cd ../../../../
+    cp -a mcp/src/minecraft_server/net/direct-patches/ direct/
+    rm -rf mcp/src/minecraft_server/net/direct-patches/
 }
 
 dim_setup_eclipse(){
@@ -121,7 +110,6 @@ if [ -z $1 ]; then
     exit
 fi
 
-# TODO: Improve this, just a little bit lazy right now
 if [ "$(type -t "dim_$1")" = "function" ]; then
     "dim_$@"
 elif [ "$(type -t "dim_$1_$2")" = "function" ]; then
