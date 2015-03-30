@@ -17,15 +17,15 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 * Download a **1.8 Server** jar from http://mcversions.net/
 * Name the jar to `minecraft_server.jar` and put it in `mcp/jars`
 * Run `mcp/decompile.sh`
-* Run `init.sh` from the root folder
+* Run `dim init` from the root folder
 * Open `mcp/src/minecraft_server/` in your IDE
 * Edit code
 
 ###Export Obfuscated Code
-* Run `export.sh`
+* Run `dim export`
 * Get files from `mcp/reobf/minecraft_server/`
 * Put files into any vanilla jar!
 
 ##Building
-* Run `build.sh`
+* Run `dim build`
 * Commit & Push!
