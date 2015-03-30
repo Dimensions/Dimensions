@@ -51,6 +51,18 @@ dim_init(){
     cp -a indirect/dimensions/ mcp/src/minecraft_server/
 
     echo Done moving indirect code into NMS
+
+    cd mcp/src/old_nms/net/
+    git init
+    cd ../../../../
+    
+    cd mcp/src/minecraft_server/net/
+    git init
+    cd ../../../../
+    
+    echo Done initializing NMS
+
+    dim_update
 }
 
 apply_patches() {
@@ -88,10 +100,10 @@ apply_patches() {
 }
 
 dim_update() {
-    echo "> Updating submodules..."
+    echo "> Updating Solar..."
     git submodule update --init
     echo "> Updating MCP..."
-    apply_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ patches
+    apply_patches mcp/src/old_nms/net/ mcp/src/minecraft_server/net/ direct
 }
 
 
