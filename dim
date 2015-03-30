@@ -24,7 +24,7 @@ dim_export(){
 
 dim_init(){
 
-    ecoh "Initilaizing the Dimensions server..."
+    echo "Initilaizing the Dimensions server..."
 
     echo "Making a local copy of the NMS source..."
     mkdir -p mcp/src/old_nms
@@ -97,21 +97,18 @@ dim_build(){
 }
 
 dim_setup-eclipse(){
+    echo "Moving files into eclipse/Server/..."
     mkdir -p mcp/eclipse/Server/src
     cp -a mcp/src/minecraft_server/net mcp/eclipse/Server/src
     cp -a mcp/src/minecraft_server/dimensions mcp/eclipse/Server/src
     cp -a mcp/jars mcp/eclipse/Server
-
-    echo Files moved into eclipse/Server/
 }
 
 if [ -z $* ]
 then
-    echo test1
     dim_help
 elif [ "$(type -t "dim_$1")" = "function" ]
 then
-    echo test2
     "dim_$@"
 else
     dim_help
