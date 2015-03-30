@@ -26,7 +26,7 @@ dim_init(){
 
     ecoh "Initilaizing the Dimensions server..."
 
-    echo "Making a local copy of the NMS source...
+    echo "Making a local copy of the NMS source..."
     mkdir -p mcp/src/old_nms
     cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
@@ -96,7 +96,7 @@ dim_build(){
     rm -rf mcp/src/minecraft_server/net/direct-patches/
 }
 
-dim_setup_eclipse(){
+dim_setup-eclipse(){
     mkdir -p mcp/eclipse/Server/src
     cp -a mcp/src/minecraft_server/net mcp/eclipse/Server/src
     cp -a mcp/src/minecraft_server/dimensions mcp/eclipse/Server/src
@@ -105,16 +105,14 @@ dim_setup_eclipse(){
     echo Files moved into eclipse/Server/
 }
 
-if [ -z $1 ]; then
+if [ -z $* ]
+then
+    echo test1
     dim_help
-    exit
-fi
-
-if [ "$(type -t "dim_$1")" = "function" ]; then
+elif [ "$(type -t "dim_$1")" = "function" ]
+then
+    echo test2
     "dim_$@"
-elif [ "$(type -t "dim_$1_$2")" = "function" ]; then
-    "dim_$1_$2"
 else
-    >&2 echo "Unknown command: '$@'. Type '$0 help' for more information."
-    exit 1
+    dim_help
 fi
