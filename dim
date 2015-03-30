@@ -67,15 +67,19 @@ dim_init(){
 
 apply_patches() {
     # Based on https://hub.spigotmc.org/stash/projects/SPIGOT/repos/spigot/browse/applyPatches.sh#7
+
+    echo ">> Setting variables..."
     source=$1
     repo=$(basename $1)
     target=$2
     patchdir=$3
-    branch=${4:-origin/master}
+    branch=${4:-master}
 
+    echo ">> Branching..."
     cd "$basedir/$source"
     git reset --hard "$branch" >/dev/null
     git branch -f upstream >/dev/null
+
 
     cd "$basedir"
     [ -d "$basedir/$target" ] || git clone "$source" "$target" -b upstream
