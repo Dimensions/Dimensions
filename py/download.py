@@ -27,7 +27,9 @@ def getUnzipped(theurl, thedir):
   os.unlink(name)
 
 def main():
+  print "> Downloading MCP..."
   getUnzipped("http://www.modcoderpack.com/website/sites/default/files/releases/mcp910.zip", "mcp")
+  print "> Downloading Minecraft 1.8..."
   mc18= urllib.URLopener()
   mc18.retrieve("https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar", "mcp/jars/minecraft_server.jar")
 
