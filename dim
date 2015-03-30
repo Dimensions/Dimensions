@@ -25,7 +25,17 @@ dim_export(){
 dim_init(){
 
     echo "Downloading necessary files..."
-    python py/download.py
+    mkdir mcp/
+    cd mcp
+    curl -sS http://www.modcoderpack.com/website/sites/default/files/releases/mcp910.zip > mcp.zip
+    unzip mcp.zip
+    rm mcp.zip
+    cd jars
+    curl -sS https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
+    cd ../../
+    
+    echo "Decompiling NMS..."
+    mcp/decompile.sh
 
     echo "Initilaizing the Dimensions server..."
 
