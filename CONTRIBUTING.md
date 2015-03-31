@@ -3,20 +3,13 @@ There are two parts to Dimensions, the *indirect implementation* and the *direct
 
 You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
 
-##Pulling
-* Go into a folder
-* Initialize Git: `git init`
-* Add the remote: `git remote add dim https://github.com/dimensions/dimensions`
-* Pull: `git pull dim master`
+##Cloning
+* Run `git clone https://github.com/dimensions/dimensions Dimensions`
+* You can go into that folder using `cd Dimensions`
 
 
-##MCP Workspace
+##Workspace
 ###Setup
-* Download 1.8 MCP from http://modcoderpack.com/website/releases
-* Unzip the files and put them in a new folder called `mcp/`
-* Download a **1.8 Server** jar from http://mcversions.net/
-* Name the jar to `minecraft_server.jar` and put it in `mcp/jars`
-* Run `mcp/decompile.sh`
 * Run `dim init` from the root folder
 * Open `mcp/src/minecraft_server/` in your IDE
 * Edit code
