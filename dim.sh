@@ -37,7 +37,7 @@ dim_init(){
     mkdir -p libs
     cd libs
     echo "> Downloading Jython..."
-    curl -sS http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
+    curl -sS https://repo1.maven.org/maven2/org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
     cd ../
     
     echo "> Decompiling NMS..."
