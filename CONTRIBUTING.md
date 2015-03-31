@@ -3,8 +3,8 @@ There are two parts to Dimensions, the *indirect implementation* and the *direct
 
 ##Requirements
 * You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads).
-* Java 7, this may change to 8 later.
-* ~~Python~~ We use Jython!
+* [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html), this may change to 8 later.
+* ~~Python~~ We use (*and automatically download*) Jython!
 
 ##Cloning
 * Run `git clone https://github.com/dimensions/dimensions Dimensions`
