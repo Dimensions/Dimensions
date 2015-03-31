@@ -9,14 +9,14 @@ dim_help() {
   init - Copy direct & indirect into mcp and setup Solar.
   update - Update from the repo.
   build - Make files ready to commit.
-  export - Export the obfuscated code to put into a jar.'
+  export - Export the obfuscated code to put into a jar.' #' <- fix GitHub syntax highlighting
 }
 
 dim_export(){
     #Recompile NMS
-    java -jar jython.jar mcp/runtime/recompile.py --server #Only need to recompile the server.
+    java -jar libs/jython.jar mcp/runtime/recompile.py --server #Only need to recompile the server.
     #Reobfuscate NMS
-    java -jar jython.jar mcp/runtime/reobfuscate.py --server #Only need to ReObf the server.
+    java -jar libs/jython.jar mcp/runtime/reobfuscate.py --server #Only need to ReObf the server.
     
     echo Grab the files in mcp/reobf/minecraft_server/ and put them into any vanilla jar!
 }
@@ -26,39 +26,43 @@ dim_init(){
     echo "Downloading necessary files..."
     mkdir mcp/
     cd mcp
-    echo "Downloading MCP"
+    echo "> Downloading MCP..."
     curl -sS http://www.modcoderpack.com/website/sites/default/files/releases/mcp910.zip > mcp.zip
     unzip mcp.zip
     rm mcp.zip
     cd jars
-    echo "Downloading Minecraft Server Jar"
+    echo "> Downloading Minecraft Server Jar..."
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
     cd ../../
-    echo "Downloading Jython"
+    mkdir -p libs
+    cd libs
+    echo "> Downloading Jython..."
     curl -sS http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
+    cd ../
     
-    echo "Decompiling NMS..."
-    java -jar jython.jar mcp/runtime/decompile.py --server #Only need the server decompiled.
+    echo "> Decompiling NMS..."
+    java -jar libs/jython.jar mcp/runtime/decompile.py --server #Only need the server decompiled.
+
     echo "Initilaizing the Dimensions server..."
 
-    echo "Making a local copy of the NMS source..."
+    echo "> Making a local copy of the NMS source..."
     mkdir -p mcp/src/old_nms
     cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
-    echo "Setting up Solar..."
+    echo "> Setting up Solar..."
     cd Solar
     git submodule init
     git submodule update
     cd ..
 
-    echo "Moving Solar into NMS..."
+    echo "> Moving Solar into NMS..."
     cp -a Solar/src/dimensions mcp/src/minecraft_server/
 
-    echo "Copying indirect code into NMS..."
+    echo "> Copying indirect code into NMS..."
     mkdir -p indirect/dimensions
     cp -a indirect/dimensions/ mcp/src/minecraft_server/
     
-    echo "Initializing NMS..."
+    echo "> Initializing NMS..."
     cd mcp/src/minecraft_server/net/
     git init
     git checkout -b dimensions
@@ -77,9 +81,9 @@ apply_patches() {
 }
 
 update() {
-    echo "> Updating Solar..."
+    echo ">> Updating Solar..."
     git submodule update --init
-    echo "> Applying patches to MCP..."
+    echo ">> Applying patches to MCP..."
     apply_patches
 }
 
