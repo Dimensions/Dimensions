@@ -14,11 +14,10 @@ dim_help() {
 
 dim_export(){
     #Recompile NMS
-    mcp/recompile.sh
-
+    java -jar jython.jar mcp/runtime/recompile.py --server #Only need to recompile the server.
     #Reobfuscate NMS
-    mcp/reobfuscate.sh	
-
+    java -jar jython.jar mcp/runtime/reobfuscate.py --server #Only need to ReObf the server.
+    
     echo Grab the files in mcp/reobf/minecraft_server/ and put them into any vanilla jar!
 }
 
@@ -27,17 +26,19 @@ dim_init(){
     echo "Downloading necessary files..."
     mkdir mcp/
     cd mcp
+    echo "Downloading MCP"
     curl -sS http://www.modcoderpack.com/website/sites/default/files/releases/mcp910.zip > mcp.zip
     unzip mcp.zip
     rm mcp.zip
     cd jars
+    echo "Downloading Minecraft Server Jar"
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
-    cd ../
+    cd ../../
+    echo "Downloading Jython"
+    curl -sS http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
     
     echo "Decompiling NMS..."
-    decompile.sh
-    cd ../
-    
+    java -jar jython.jar mcp/runtime/decompile.py --server #Only need the server decompiled.
     echo "Initilaizing the Dimensions server..."
 
     echo "Making a local copy of the NMS source..."
