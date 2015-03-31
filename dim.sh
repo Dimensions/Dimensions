@@ -123,6 +123,9 @@ then
 elif [ "$(type -t "dim_$1")" = "function" ]
 then
     "dim_$@"
+elif [ "$(type -t "dim_$1_$2")" = "function" ]
+then
+    "dim_$1_$2"
 else
     dim_help
 fi
