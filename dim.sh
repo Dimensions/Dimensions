@@ -32,7 +32,7 @@ dim_init(){
     rm mcp.zip
     cd jars
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
-    cd ../../
+    cd ../../../
     
     echo "Decompiling NMS..."
     mcp/decompile.sh
