@@ -10,15 +10,15 @@ You're going to need a shell, I suggest [Git Bash](http://git-scm.com/downloads)
 
 ##Workspace
 ###Setup
-* Run `dim init` from the root folder
+* Run `dim.sh init` from the root folder
 * Open `mcp/src/minecraft_server/` in your IDE
 * Edit code
 
 ###Export Obfuscated Code
-* Run `dim export`
+* Run `dim.sh export`
 * Get files from `mcp/reobf/minecraft_server/`
 * Put files into any vanilla jar!
 
-##Building
-* Run `dim build`
+###Building
+* Run `dim.sh build`
 * Commit & Push!
