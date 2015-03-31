@@ -71,6 +71,7 @@ apply_patches() {
     cp -a direct/ mcp/src/minecraft_server/net/direct-patches/
     cd mcp/src/minecraft_server/net/
     git am direct-patches
+    rm -rf direct-patches
     cd ../../../../
 }
 
