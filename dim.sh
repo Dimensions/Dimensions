@@ -16,12 +16,18 @@ dim_help() {
 }
 
 dim_export(){
-    #Recompile NMS
+    echo "Recompiling NMS..."
     java -jar libs/jython.jar mcp/runtime/recompile.py --server #Only need to recompile the server.
-    #Reobfuscate NMS
+    echo "Reobfuscating NMS..."
     java -jar libs/jython.jar mcp/runtime/reobfuscate.py --server #Only need to ReObf the server.
     
-    echo Grab the files in mcp/reobf/minecraft_server/ and put them into any vanilla jar!
+    echo "Moving files..."
+    mkdir -p out
+    cp -a mcp/reobf/minecraft_server out
+    cd out
+    zip -r dimensions.zip *
+
+    echo "Grab the files out of out/dimensions.zip!"
 }
 
 dim_init(){
