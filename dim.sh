@@ -16,10 +16,11 @@ dim_help() {
 }
 
 dim_export(){
+    cd mcp
     echo "Recompiling NMS..."
-    java -jar libs/jython.jar mcp/runtime/recompile.py --server #Only need to recompile the server.
+    java -jar libs/jython.jar runtime/recompile.py --server #Only need to recompile the server.
     echo "Reobfuscating NMS..."
-    java -jar libs/jython.jar mcp/runtime/reobfuscate.py --server #Only need to ReObf the server.
+    java -jar libs/jython.jar runtime/reobfuscate.py --server #Only need to ReObf the server.
     
     echo "Moving files..."
     mkdir -p out
@@ -60,11 +61,10 @@ dim_init(){
     echo "> Downloading Minecraft Server Jar..."
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
     cd ../../
-    mkdir -p libs
-    cd libs
+    mkdir -p mcp/libs
+    cd mcp/libs
     echo "> Downloading Jython..."
     curl -sS https://repo1.maven.org/maven2/org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
-    cd ../
     
     echo "> Decompiling NMS..."
     java -jar libs/jython.jar mcp/runtime/decompile.py --server #Only need the server decompiled.
