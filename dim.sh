@@ -23,11 +23,26 @@ dim_export(){
     
     echo "Moving files..."
     mkdir -p out
+    mkdir -p extraction
     cp -a mcp/reobf/minecraft_server out
+    cp -a mcp/reobf/minecraft_server extraction
     cd out
     zip -r dimensions.zip *
+    
+    echo "Extracting Jar..."
+    cd ../
+    cp mcp/jars/minecraft_server.jar extraction/mc-s.jar
+    cd out
+    jar xf mc-s.jar
+    rm mc-s.jar
+    zip -r dimensions.zip *
+    cd ..
+    mv extraction/dimensions.zip out/dimensions.jar
+    rm -rf extraction
 
-    echo "Grab the files out of out/dimensions.zip!"
+    echo "The available jar is in out/dimensions.jar."
+    echo "> This includes the Minecraft Server, so   "
+    echo "> you can double-click it to run it.       "
 }
 
 dim_init(){
