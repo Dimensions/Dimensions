@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Shell script for Dimensions
+#Licensed under the MIT License
+
 dim_help() {
     echo "Usage: $0 <command>"
     echo "Available commands:"
