@@ -25,7 +25,6 @@ dim_export(){
     mkdir -p out
     mkdir -p extraction
     cp -a mcp/reobf/minecraft_server out
-    cp -a mcp/reobf/minecraft_server extraction
     cd out
     zip -r dimensions.zip *
     
@@ -35,6 +34,9 @@ dim_export(){
     cd out
     jar xf mc-s.jar
     rm mc-s.jar
+    cd ..
+    cp -a mcp/reobf/minecraft_server extraction
+    cd extraction
     zip -r dimensions.zip *
     cd ..
     mv extraction/dimensions.zip out/dimensions.jar
