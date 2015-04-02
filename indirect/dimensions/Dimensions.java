@@ -1,9 +1,9 @@
 package dimensions;
 
 public class Dimensions{
-	
-	public void main(String...args){
-		
-	}
-	
+
+    public void start(){
+        System.out.println("Dimensions initializing...");
+    }
+
 }
