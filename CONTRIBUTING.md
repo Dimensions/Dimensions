@@ -14,8 +14,19 @@ There are two parts to Dimensions, the *indirect implementation* and the *direct
 ##Workspace
 ###Setup
 * Run `dim.sh init` from the root folder
+* Wait 5-10 minutes
 * Open `mcp/src/minecraft_server/` in your IDE
-* Edit code
+
+###Making Changes
+####Indirect
+* Make changes to `indirect/`
+* Commit from the root folder
+
+####Direct
+* Go into the NMS files `cd mcp/src/minecraft_server/net/`
+This is another git repository (a repo in a repo) which has two branches, `master` and `dimensions`. You don't want to touch the `master` branch, it's used for making patches. 
+* Make commits on the `dimensions` branch.
+Each of these commits will become a `.patch` file once you `dim.sh build`.
 
 ###Export Obfuscated Code
 * Run `dim.sh export`
