@@ -18,9 +18,9 @@ dim_help() {
 dim_export(){
     cd mcp
     echo "Recompiling NMS..."
-    runtime\bin\python\python_mcp runtime/recompile.py --server #Only need to recompile the server.
+    runtime/bin/python/python_mcp runtime/recompile.py --server #Only need to recompile the server.
     echo "Reobfuscating NMS..."
-    runtime\bin\python\python_mcp runtime/reobfuscate.py --server #Only need to ReObf the server.
+    runtime/bin/python/python_mcp runtime/reobfuscate.py --server #Only need to ReObf the server.
     
     echo "Moving files..."
     mkdir -p out
@@ -63,7 +63,7 @@ dim_init(){
     cd ../../
     cd mcp
     echo "> Decompiling NMS..."
-    runtime\bin\python\python_mcp runtime/decompile.py --server #Only need the server decompiled.
+    runtime/bin/python/python_mcp runtime/decompile.py --server #Only need the server decompiled.
 
     echo "Initilaizing the Dimensions server..."
     cd ..
