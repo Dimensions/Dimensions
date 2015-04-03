@@ -66,7 +66,7 @@ dim_init(){
     curl -sS https://repo1.maven.org/maven2/org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
     
     echo "> Decompiling NMS..."
-    java -jar jython.jar mcp/runtime/decompile.py --server #Only need the server decompiled.
+    java -jar jython.jar runtime/decompile.py --server #Only need the server decompiled.
 
     echo "Initilaizing the Dimensions server..."
 
