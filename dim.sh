@@ -85,6 +85,8 @@ dim_init(){
     echo "> Initializing NMS..."
     cd mcp/src/minecraft_server/net/
     git init
+	git add -A 
+	git commit -m "Initial Commit"
     git checkout -b dimensions
     cd ../../../../
 
@@ -92,11 +94,11 @@ dim_init(){
 }
 
 apply_patches() {
-    mkdir -p mcp/src/minecraft_server/net/direct-patches/
-    cp -a direct/ mcp/src/minecraft_server/net/direct-patches/
+    mkdir -p mcp/src/minecraft_server/net/direct/
+    cp -a direct/ mcp/src/minecraft_server/net/direct/
     cd mcp/src/minecraft_server/net/
-    git am direct-patches
-    rm -rf direct-patches
+    git am direct
+    rm -rf direct
     cd ../../../../
 }
 
@@ -122,18 +124,19 @@ dim_build(){
     cp -a mcp/src/minecraft_server/dimensions/ indirect/
 
     #Copy Solar code into Solar
-    echo Moving Solar code into Solar/src/dimensions/solar/
+    echo "Moving Solar code into Solar/src/dimensions/solar/"
     cp -a indirect/dimensions/solar/ Solar/src/dimensions/
     #Remove everything from old solar folder
     rm -rf indirect/dimensions/solar/
     
     #Build patches into direct/
-    echo "> Recreating patches for MCP..."
+    echo "Recreating patches for MCP..."
     cd mcp/src/minecraft_server/net/
-    git format-patch -o direct-patches master
+    git format-patch --root -o direct
+	rm direct/0001-Initial-Commit.patch #We don't need this one
     cd ../../../../
-    cp -a mcp/src/minecraft_server/net/direct-patches/ direct/
-    rm -rf mcp/src/minecraft_server/net/direct-patches/
+    cp -a mcp/src/minecraft_server/net/direct/ ./
+	rm -rf mcp/src/minecraft_server/net/direct/
 }
 
 dim_setup-eclipse(){

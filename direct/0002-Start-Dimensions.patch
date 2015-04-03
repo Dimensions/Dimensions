@@ -1,0 +1,24 @@
+From a620d17ba953f9ca1447a88c9dc7107e9531c82f Mon Sep 17 00:00:00 2001
+From: Phase <ph4sesaber@gmail.com>
+Date: Fri, 3 Apr 2015 15:52:50 -0700
+Subject: [PATCH 2/2] Start Dimensions
+
+---
+ minecraft/server/MinecraftServer.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/minecraft/server/MinecraftServer.java b/minecraft/server/MinecraftServer.java
+index cbdd413..3db0b6b 100644
+--- a/minecraft/server/MinecraftServer.java
++++ b/minecraft/server/MinecraftServer.java
+@@ -812,6 +812,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IThre
+ 
+     public static void main(String[] p_main_0_)
+     {
++        System.out.println("Dimensions initializing...");
+         Bootstrap.register();
+ 
+         try
+-- 
+1.9.4.msysgit.2
+
