@@ -18,9 +18,9 @@ dim_help() {
 dim_export(){
     cd mcp
     echo "Recompiling NMS..."
-    java -jar jython.jar runtime/recompile.py --server #Only need to recompile the server.
+    runtime\bin\python\python_mcp runtime/recompile.py --server #Only need to recompile the server.
     echo "Reobfuscating NMS..."
-    java -jar jython.jar runtime/reobfuscate.py --server #Only need to ReObf the server.
+    runtime\bin\python\python_mcp runtime/reobfuscate.py --server #Only need to ReObf the server.
     
     echo "Moving files..."
     mkdir -p out
@@ -62,11 +62,8 @@ dim_init(){
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
     cd ../../
     cd mcp
-    echo "> Downloading Jython..."
-    curl -sS https://repo1.maven.org/maven2/org/python/jython-standalone/2.7-rc1/jython-standalone-2.7-rc1.jar > jython.jar
-    
     echo "> Decompiling NMS..."
-    java -jar jython.jar runtime/decompile.py --server #Only need the server decompiled.
+    runtime\bin\python\python_mcp runtime/decompile.py --server #Only need the server decompiled.
 
     echo "Initilaizing the Dimensions server..."
     cd ..
