@@ -24,7 +24,7 @@ dim_export(){
     
     echo "Moving files..."
     mkdir -p out
-    mkdir -p extraction
+    mkdir -p extraction/src/
     cp -a mcp/reobf/minecraft_server out
     cd out
     zip -r dimensions.zip *
@@ -36,7 +36,7 @@ dim_export(){
     jar xf mc-s.jar
     rm mc-s.jar
     cd ..
-    cp -a mcp/reobf/minecraft_server extraction
+    cp -a mcp/reobf/minecraft_server extraction/src
     cd extraction
     zip -r dimensions.zip *
     cd ..
