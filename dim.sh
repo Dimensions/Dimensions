@@ -69,8 +69,8 @@ dim_init(){
     cd ..
 	
     echo "> Making a local copy of the NMS source..."
-    mkdir -p mcp/src/old_nms
-    cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
+    mkdir -p mcp/src/dev_nms
+    cp -a mcp/src/minecraft_server/net/ mcp/src/dev_nms/net/
 
     echo "> Setting up Solar..."
     git submodule update --init
@@ -93,12 +93,11 @@ dim_init(){
     update
 }
 
-apply_patches() {
+dim_apply() {
     mkdir -p mcp/src/minecraft_server/net/direct/
-    cp -a direct/ mcp/src/minecraft_server/net/direct/
+    cp -a direct/ mcp/src/minecraft_server/net/
     cd mcp/src/minecraft_server/net/
-    git am direct
-    rm -rf direct
+    git am direct/*.patch
     cd ../../../../
 }
 
@@ -106,7 +105,7 @@ update() {
     echo ">> Updating Solar..."
     git submodule update --init
     echo ">> Applying patches to MCP..."
-    apply_patches
+    dim_apply
 }
 
 dim_update(){
