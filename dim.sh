@@ -69,16 +69,14 @@ dim_init(){
     java -jar jython.jar runtime/decompile.py --server #Only need the server decompiled.
 
     echo "Initilaizing the Dimensions server..."
-
+    cd ..
+	
     echo "> Making a local copy of the NMS source..."
     mkdir -p mcp/src/old_nms
     cp -a mcp/src/minecraft_server/net/ mcp/src/old_nms/net/
 
     echo "> Setting up Solar..."
-    cd Solar
-    git submodule init
-    git submodule update
-    cd ..
+    git submodule update --init
 
     echo "> Moving Solar into NMS..."
     cp -a Solar/src/dimensions mcp/src/minecraft_server/
