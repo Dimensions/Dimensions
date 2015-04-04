@@ -18,10 +18,11 @@ dim_help() {
 dim_export(){
     cd mcp
     echo "Recompiling NMS..."
-    runtime/bin/python/python_mcp runtime/recompile.py --server #Only need to recompile the server.
+    runtime/bin/python/python_mcp runtime/recompile.py --server --nocopy #Only need to recompile the server.
     echo "Reobfuscating NMS..."
-    runtime/bin/python/python_mcp runtime/reobfuscate.py --server #Only need to ReObf the server.
+    runtime/bin/python/python_mcp runtime/reobfuscate.py --server --nocopy #Only need to ReObf the server.
     
+	cd ..
     echo "Moving files..."
     mkdir -p out
     mkdir -p extraction/src/
@@ -60,8 +61,7 @@ dim_init(){
     cd jars
     echo "> Downloading Minecraft Server Jar..."
     curl -sS http://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.1.8.jar > minecraft_server.jar
-    cd ../../
-    cd mcp
+    cd ../../mcp
     echo "> Decompiling NMS..."
     runtime/bin/python/python_mcp runtime/decompile.py --server #Only need the server decompiled.
 
@@ -102,8 +102,12 @@ dim_apply() {
 }
 
 update() {
+    cp -a mcp/src/dev_nms/net/ mcp/src/minecraft_server/net/
     echo ">> Updating Solar..."
     git submodule update --init
+	cp -a Solar/src/dimensions mcp/src/minecraft_server/
+	echo ">> Updating indirect code..."
+    cp -a indirect/dimensions/ mcp/src/minecraft_server/
     echo ">> Applying patches to MCP..."
     dim_apply
 }
