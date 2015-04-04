@@ -16,12 +16,14 @@ dim_help() {
 }
 
 dim_export(){
-    cd mcp
+    cd mcp/temp
+    echo "Faking client look to fix MCP derp."
+    echo "" > client_meta.log
+    cd ..
     echo "Recompiling NMS..."
-    runtime/bin/python/python_mcp runtime/recompile.py --server --nocopy #Only need to recompile the server.
+    runtime/bin/python/python_mcp runtime/recompile.py --server #Only need to recompile the server.
     echo "Reobfuscating NMS..."
-    runtime/bin/python/python_mcp runtime/reobfuscate.py --server --nocopy #Only need to ReObf the server.
-    
+    runtime/bin/python/python_mcp runtime/reobfuscate.py --server #Only need to ReObf the server.
 	cd ..
     echo "Moving files..."
     mkdir -p out
