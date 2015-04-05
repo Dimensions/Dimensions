@@ -4,7 +4,7 @@
  
      public static void main(String[] p_main_0_)
      {
-+        System.out.println("I'm pretty sure I'm initializing Dimensions right now!");
++        net.dimensions.Dimensions.init();
          Bootstrap.func_151354_b();
  
          try
