@@ -9,6 +9,8 @@
 /.settings
 /bin/
 
-#MCP
-/mcp
-/out
+#Gradle
+minecraft/Clean/
+minecraft/Nailed
+build/
+.gradle/

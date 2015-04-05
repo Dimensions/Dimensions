@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven/"
+        }
+		maven {
+            name = "jk_5"
+            url = "http://maven.jk-5.nl/"
+		}
+    }
+    dependencies {
+        classpath "jk_5.nailed.mcp:mcp:1.6.3"
+    }
+}
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "eclipse"
+apply plugin: "nailed-mcp"
+
+group = "net.ilexiconn.spoon"
+version = "0.1.0"
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+nailedMCP {
+    minecraftVersion = "1.8"
+    mainClass = "net.minecraft.server.MinecraftServer"
+    mappings = "snapshot_20150404"
+}
