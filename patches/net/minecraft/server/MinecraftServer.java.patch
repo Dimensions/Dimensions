@@ -1,10 +1,11 @@
 --- ../src-base/minecraft/net/minecraft/server/MinecraftServer.java
 +++ ../src-work/minecraft/net/minecraft/server/MinecraftServer.java
-@@ -719,6 +696,7 @@
+@@ -719,6 +719,8 @@
  
      public static void main(String[] p_main_0_)
      {
-+        net.dimensions.DimensionsPackage.init();
++    	//Dimension Init Call
++        net.dimensions.Dimensions.init();
          Bootstrap.func_151354_b();
  
          try
