@@ -4,6 +4,7 @@ There are two parts to Dimensions, the *indirect implementation* and the *direct
 ##Requirements
 * You're going to need gradle, You can download it at https://gradle.org/downloads/
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html), this may change to 8 later.
+* Be sure you follow the [coding style](https://github.com/Dimensions/Dimensions/blob/master/STYLE.md) rules.
 
 ##Cloning
 * Run `git clone https://github.com/dimensions/dimensions Dimensions`
