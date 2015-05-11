@@ -1,4 +1,4 @@
-package net.dimensions;
+package dimensions;
 
 import java.util.Random;
 

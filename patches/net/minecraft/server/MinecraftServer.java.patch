@@ -5,7 +5,7 @@
      public static void main(String[] p_main_0_)
      {
 +    	//Dimension Init Call
-+        net.dimensions.Dimensions.init();
++        dimensions.Dimensions.init();
          Bootstrap.func_151354_b();
  
          try
