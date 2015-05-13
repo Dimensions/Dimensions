@@ -1,4 +1,4 @@
-# Dimensions
+# Dimensions ![PR](http://issuestats.com/github/dimensions/dimensions/badge/pr?style=flat&concise=true) ![Issues](http://issuestats.com/github/rails/rails/badge/issue?style=flat&concise=true)
 A Minecraft server mod to replace them all.
 
 ##Want to help?
