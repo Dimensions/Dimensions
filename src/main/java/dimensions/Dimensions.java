@@ -2,7 +2,9 @@ package dimensions;
 
 import java.util.Random;
 
-public class Dimensions {
+import dimensions.solar.Game;
+
+public class Dimensions extends Game {
 
     private static Random rand;
 
