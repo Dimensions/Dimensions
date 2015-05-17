@@ -4,7 +4,7 @@ import java.util.Random;
 
 import dimensions.solar.Game;
 
-public class Dimensions extends Game {
+public class Dimensions implements Game {
 
     private static Random rand;
 
