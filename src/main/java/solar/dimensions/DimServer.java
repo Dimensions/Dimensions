@@ -18,7 +18,7 @@ public class DimServer implements Server {
         return name;
     }
 
-    public String getMOTD(){
+    public String getMotd(){
         return motd;
     }
 
