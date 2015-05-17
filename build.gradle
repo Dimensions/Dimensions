@@ -29,6 +29,9 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    compile project(':api') 
+}
 
 group = "net.ilexiconn.spoon"
 version = "0.1.0"
