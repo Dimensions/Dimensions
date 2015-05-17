@@ -1,6 +1,3 @@
-[submodule "Solar"]
-	path = api
-	url = git://github.com/Dimensions/Solar.git
 [submodule "api"]
 	path = api
 	url = https://github.com/Dimensions/Solar.git
