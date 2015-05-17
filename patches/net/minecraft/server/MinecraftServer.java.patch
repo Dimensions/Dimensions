@@ -5,7 +5,7 @@
      public static void main(String[] p_main_0_)
      {
 +    	//Dimension Init Call
-+        dimensions.Dimensions.init();
++        solar.dimensions.Dimensions.init();
          Bootstrap.func_151354_b();
  
          try
