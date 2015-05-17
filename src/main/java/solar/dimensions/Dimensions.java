@@ -37,7 +37,7 @@ public class Dimensions implements Game {
         return instance;
     }
 
-    public static void log(String message) {
+    protected static void log(String message) {
         System.out.println("[Dimensions] " + message);
     }
 
