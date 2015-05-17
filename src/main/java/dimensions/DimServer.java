@@ -8,7 +8,7 @@ public class DimServer implements Server {
     private final String motd;
     private final String version;
 
-    public Server(String name, String motd, String version){
+    public DimServer(String name, String motd, String version){
         this.name = name;
         this.motd = motd;
         this.version = version;
