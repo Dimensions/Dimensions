@@ -5,7 +5,7 @@ import java.lang.IllegalStateException;
 
 import solar.dimensions.api.Game;
 
-public class Dimensions implements Game {
+public final class Dimensions implements Game {
 
     private static Random rand = null;
     private static Dimensions instance = null;
