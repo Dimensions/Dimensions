@@ -1,4 +1,4 @@
-package dimensions;
+package net.dimensions;
 
 import net.dimensions.api.Game;
 

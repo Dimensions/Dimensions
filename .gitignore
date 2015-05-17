@@ -11,6 +11,6 @@
 
 #Gradle
 minecraft/Clean/
-minecraft/Nailed
+minecraft/Nailed/
 build/
 .gradle/
