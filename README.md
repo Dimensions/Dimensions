@@ -1,4 +1,4 @@
-# Dimensions ![![Build Status](https://travis-ci.org/Dimensions/Dimensions.svg?branch=master)](https://travis-ci.org/Dimensions/Dimensions) [![PR](http://issuestats.com/github/dimensions/dimensions/badge/pr?style=flat&concise=true)](https://github.com/Dimensions/Dimensions/pulls) [![Issues](http://issuestats.com/github/rails/rails/badge/issue?style=flat&concise=true)](https://github.com/Dimensions/Dimensions/issues)
+# Dimensions [![Build Status](https://travis-ci.org/Dimensions/Dimensions.svg?branch=master)](https://travis-ci.org/Dimensions/Dimensions) [![PR](http://issuestats.com/github/dimensions/dimensions/badge/pr?style=flat&concise=true)](https://github.com/Dimensions/Dimensions/pulls) [![Issues](http://issuestats.com/github/rails/rails/badge/issue?style=flat&concise=true)](https://github.com/Dimensions/Dimensions/issues)
 A Minecraft server mod to replace them all.
 
 ##Want to help?
