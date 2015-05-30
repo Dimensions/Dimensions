@@ -29,7 +29,7 @@ public final class Dimensions implements Game {
         new Dimensions();
     }
 
-    public static Random getRandom() {
+    public Random getRandom() {
         return rand;
     }
 
