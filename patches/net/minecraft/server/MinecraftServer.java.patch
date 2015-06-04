@@ -9,3 +9,13 @@
          Bootstrap.func_151354_b();
  
          try
+@@ -933,7 +935,8 @@
+ 
+     public String getServerModName()
+     {
+-        return "vanilla";
++    	//Change server branding to Dimensions
++        return solar.dimensions.Dimensions.getInstance().getServer().getName();
+     }
+ 
+     public CrashReport func_71230_b(CrashReport p_71230_1_)
